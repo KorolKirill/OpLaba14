@@ -6,6 +6,6 @@ public class Main {
         String filePath = "Test.txt";
         WorkingWithFiles wwf = new WorkingWithFiles();
         System.out.println( wwf.firstLongestString(filePath));
-        wwf.checkSum(filePath);
+        System.out.println(      wwf.checkSum(filePath));
     }
 }

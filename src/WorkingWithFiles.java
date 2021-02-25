@@ -32,14 +32,18 @@ public class WorkingWithFiles {
     }
     public byte checkSum(String filename){
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(filename))){
-
+            byte answer = (byte) bufferedReader.read();
+            byte nextByte;
+            while ( ( nextByte = (byte) bufferedReader.read() )!=-1 ) {
+                answer = (byte) (answer ^ nextByte);
+            }
+            return answer;
         } catch (FileNotFoundException e) {
             System.out.println("Файл не найден.");
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-        return 1;
+        return -1;
     }
 
 
